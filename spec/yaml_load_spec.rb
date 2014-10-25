@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/base'
 require 'active_support/core_ext/kernel/debugger'
 
-describe YamlDb::Load do
+describe Yamldb::Load do
 
   before do
     allow(SerializationHelper::Utils).to receive(:quote_table).with('mytable').and_return('mytable')
@@ -20,14 +20,14 @@ describe YamlDb::Load do
           'columns' => [ 'a', 'b' ],
           'records' => [[1, 2], [3, 4]]
         } } )
-    expect(YamlDb::Load).to receive(:load_table).with('mytable', { 'columns' => [ 'a', 'b' ], 'records' => [[1, 2], [3, 4]] },true)
-    YamlDb::Load.load(@io)
+    expect(Yamldb::Load).to receive(:load_table).with('mytable', { 'columns' => [ 'a', 'b' ], 'records' => [[1, 2], [3, 4]] },true)
+    Yamldb::Load.load(@io)
   end
 
   it "should not call load structure when the document in the file contains no records" do
     expect(YAML).to receive(:load_documents).with(@io).and_yield({ 'mytable' => nil })
-    expect(YamlDb::Load).to_not receive(:load_table)
-    YamlDb::Load.load(@io)
+    expect(Yamldb::Load).to_not receive(:load_table)
+    Yamldb::Load.load(@io)
   end
 
 end
