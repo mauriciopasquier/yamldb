@@ -1,6 +1,6 @@
-# YamlDb
+# Yamldb
 
-YamlDb is a database-independent format for dumping and restoring data.  It complements the the database-independent schema format found in db/schema.rb.  The data is saved into db/data.yml.
+Yamldb is a database-independent format for dumping and restoring data.  It complements the the database-independent schema format found in db/schema.rb.  The data is saved into db/data.yml.
 
 This can be used as a replacement for mysqldump or pg_dump, but only for the databases typically used by Rails apps.  Users, permissions, schemas, triggers, and other advanced database features are not supported - by design.
 
@@ -12,7 +12,7 @@ Any database that has an ActiveRecord adapter should work.  This gem is now Rail
 
 Simply add to your Gemfile:
 
-    gem 'yaml_db'
+    gem 'yamldb'
 
 All rake tasks will then be available to you.
 
@@ -26,7 +26,7 @@ Further, there are tasks db:dump and db:load which do the entire database (the e
     rake db:data:dump_dir   ->   Dump contents of database to curr_dir_name/tablename.extension (defaults to yaml)
     rake db:data:load_dir   ->   Load contents of db/data_dir into database
 
-In addition, we have plugins whereby you can export your database to/from various formats.  We only deal with yaml and csv right now, but you can easily write tools for your own formats (such as Excel or XML).  To use another format, just load setting the "class"  parameter to the class you are using.  This defaults to "YamlDb::Helper" which is a refactoring of the old yaml_db code.  We'll shorten this to use class nicknames in a little bit.
+In addition, we have plugins whereby you can export your database to/from various formats.  We only deal with yaml and csv right now, but you can easily write tools for your own formats (such as Excel or XML).  To use another format, just load setting the "class"  parameter to the class you are using.  This defaults to "Yamldb::Helper" which is a refactoring of the old yamldb code.  We'll shorten this to use class nicknames in a little bit.
 
 ## Examples
 

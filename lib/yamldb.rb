@@ -4,16 +4,16 @@ require 'active_record'
 require 'serialization_helper'
 require 'active_support/core_ext/kernel/reporting'
 require 'rails/railtie'
-require 'yaml_db/version'
+require 'yamldb/version'
 
-module YamlDb
+module Yamldb
   module Helper
     def self.loader
-      YamlDb::Load
+      Yamldb::Load
     end
 
     def self.dumper
-      YamlDb::Dump
+      Yamldb::Dump
     end
 
     def self.extension
@@ -46,7 +46,7 @@ module YamlDb
 
       each_table_page(table) do |records|
         rows = SerializationHelper::Utils.unhash_records(records, column_names)
-        io.write(YamlDb::Utils.chunk_records(records))
+        io.write(Yamldb::Utils.chunk_records(records))
       end
     end
 
@@ -69,7 +69,7 @@ module YamlDb
 
   class Railtie < Rails::Railtie
     rake_tasks do
-      load File.expand_path('../tasks/yaml_db_tasks.rake',
+      load File.expand_path('../tasks/yamldb_tasks.rake',
 __FILE__)
     end
   end

@@ -1,1 +1,1 @@
-require 'yaml_db'
+require 'yamldb'
