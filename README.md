@@ -6,6 +6,7 @@ This can be used as a replacement for mysqldump or pg_dump, but only for the dat
 
 Any database that has an ActiveRecord adapter should work.
 
+[![Gem Version](https://badge.fury.io/rb/yamldb.svg)](http://badge.fury.io/rb/yamldb)
 [![Build Status](https://travis-ci.org/yamldb/yamldb.svg?branch=master)](https://travis-ci.org/yamldb/yamldb)
 
 ## Installation
